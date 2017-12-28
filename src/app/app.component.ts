@@ -8,7 +8,7 @@ import {RouterModule, Routes} from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  disciplinas =[
+  disciplinas = [
     new Disciplina('Portugues', 'descricao linguagem pt-br'),
     new Disciplina('Matematica', 'descricao linguagem pt-br'),
     new Disciplina('Ingles', 'descricao linguagem pt-br'),
@@ -21,7 +21,7 @@ export class AppComponent {
   descricao = null;
   editando = null;
 
-  selecionar(disciplina){
+  selecionar(disciplina) {
     this.selecionado = disciplina;
   }
   salvar() {
@@ -48,7 +48,7 @@ export class AppComponent {
     }
   }
 
-  editar(disciplina){
+  editar(disciplina) {
     this.nome = disciplina.nome;
     this.descricao = disciplina.descricao;
     this.editando = disciplina;
