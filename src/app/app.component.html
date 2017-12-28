@@ -22,5 +22,5 @@
   	<div class="col-xs-12">
     	<textarea name="descricao" id="input-descricao" placeholder="Descrição" cols="70" rows="5" [(ngModel)]="descricao" required></textarea>
 	 </div>
-	 <button type="submit" class="btn btn primary" [disabled]="!cadastro.valid">Salvar</button>
+	 <button type="submit" class="btn btn primary" [disabled]="!cadastro.valid">Salvar</button> <button type="reset" class="btn btn primary" (click)="cancelar()">Cancelar</button>
 </form>

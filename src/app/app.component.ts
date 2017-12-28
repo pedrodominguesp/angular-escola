@@ -24,17 +24,27 @@ export class AppComponent {
   selecionar(disciplina){
     this.selecionado = disciplina;
   }
-  salvar(){
-    const d = new Disciplina(this.nome, this.descricao);
-    this.disciplinas.push(d);
+  salvar() {
+    if (this.editando) {
+      this.editando.nome = this.nome;
+      this.editando.descricao = this.descricao;
+    } else {
+      const d = new Disciplina(this.nome, this.descricao);
+      this.disciplinas.push(d);
+    }
     this.nome = null;
     this.descricao = null;
+    this.editando = null;
   }
 
-  excluir(disciplina){
-    if (confirm('Deseja excluir a disciplina: ' + disciplina.nome + '?')) {
-      const i = this.disciplinas.indexOf(disciplina);
-      this.disciplinas.splice(i, 1);
+  excluir(disciplina) {
+    if (this.editando === disciplina) {
+      alert('Você não pode excluir uma disciplina que está editando');
+    } else {
+      if (confirm('Deseja excluir a disciplina: ' + disciplina.nome + '?')) {
+        const i = this.disciplinas.indexOf(disciplina);
+        this.disciplinas.splice(i, 1);
+      }
     }
   }
 
@@ -44,7 +54,7 @@ export class AppComponent {
     this.editando = disciplina;
   }
 
-  cancelar(){
+  cancelar() {
     this.nome = null;
     this.descricao = null;
     this.editando = null;
