@@ -1,0 +1,16 @@
+.selecionado{
+    font-weight: bold;
+}
+
+li p:nth-child(1){
+    cursor: pointer;
+    font-size: 12pt;
+}
+
+li p:nth-child():hover{
+    font-weight: bold;
+}
+
+li p:nth-child(2){
+    font-size: 12pt;
+}

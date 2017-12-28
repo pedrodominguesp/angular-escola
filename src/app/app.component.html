@@ -1,0 +1,26 @@
+<!--The content below is only a placeholder and can be replaced.-->
+  <h1>
+    Disciplinas
+  </h1>
+<hr>
+<ul>
+  <li *ngFor="let disciplina of disciplinas" (click)="selecionar(disciplina.nome)">
+    
+	<p [class.selecionado]="selecionado == disciplina.nome">{{disciplina.nome}} <button (click)="excluir(disciplina)">Excluir</button> <button (click)="editar(disciplina)">Editar</button></p>
+	
+    <p *ngIf="selecionado == disciplina.nome">{{disciplina.descricao}}</p>
+    
+  </li>
+</ul>
+<h2>Cadastrar</h2>
+<p>Use este formulário para cadastrar novas disciplinas.</p>
+<form #cadastro="ngForm" (submit)="salvar()" >
+	<div class="col-xs-12">
+				<label for="input-nome">Nome</label>
+				<input id="input-nome" name="nome" type="text"  [(ngModel)]="nome" required	>
+  	</div>
+  	<div class="col-xs-12">
+    	<textarea name="descricao" id="input-descricao" placeholder="Descrição" cols="70" rows="5" [(ngModel)]="descricao" required></textarea>
+	 </div>
+	 <button type="submit" class="btn btn primary" [disabled]="!cadastro.valid">Salvar</button>
+</form>
